@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect} from 'react'
-import './App.css'
+import './App.module.css'
 import {AppBar, Button, CircularProgress, Container, LinearProgress, Toolbar} from '@material-ui/core'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
@@ -37,7 +37,7 @@ function App({demo = false}: PropsType) {
 
     return (
         <HashRouter>
-            <div className="App">
+            <div className={'App'}>
                 <ErrorSnackbar/>
                 <AppBar position="static">
                     <Toolbar>
@@ -45,10 +45,9 @@ function App({demo = false}: PropsType) {
                     </Toolbar>
                     {status === 'loading' && <LinearProgress/>}
                 </AppBar>
-                <Container fixed>
-                    <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
-                    <Route path={'/login'} render={() => <Login/>}/>
-                </Container>
+                <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
+                <Route path={'/login'} render={() => <Login/>}/>
+
             </div>
         </HashRouter>
     )
